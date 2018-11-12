@@ -1,7 +1,7 @@
 {
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "editor.minimap.enabled": false,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"

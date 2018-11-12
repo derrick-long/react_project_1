@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Contacts from './components/Contacts';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from './context';
 
 import './App.css';
 // execute jsx before the return 
@@ -9,6 +10,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
+    <Provider>
       <div className="App">
         
         <Header branding= "Contact Manager" />
@@ -16,7 +18,9 @@ class App extends Component {
         <Contacts />
         </div>
 
-    </div>
+      </div>
+
+    </Provider>
     );
   }
 }
