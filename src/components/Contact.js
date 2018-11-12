@@ -6,6 +6,10 @@ import PropTypes from 'prop-types'
         showContactInfo: false
     };
 
+    onDeleteClick = () => {
+        this.props.deleteClickHandler();
+    }
+
 
   render() {
       const { contact } = this.props;
@@ -16,7 +20,13 @@ import PropTypes from 'prop-types'
         <h4>{contact.name} <i onClick={() => 
         this.setState({showContactInfo: !this.state.showContactInfo})
         }
-        className="fas fa-sort-down"> </i></h4 >
+        className="fas fa-sort-down" style={{ cursor: 'pointer'}}> </i>
+        <i className="fas fa-times" style={{cursor: 'pointer', float: 'right',
+        color: 'red'}}
+        onClick={this.onDeleteClick}>
+        </i>
+        </h4 >
+        
         {showContactInfo ? ( 
         <ul className = "list-group">
             <li className = "list-group-item" > Email: {contact.email} </li> 
@@ -30,6 +40,7 @@ import PropTypes from 'prop-types'
 
 Contact.propTypes = {
     contact: PropTypes.object.isRequired,
+    deleteClickHandler: PropTypes.func.isRequired
 }
 
 export default Contact;
