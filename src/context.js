@@ -17,7 +17,7 @@ const reducer = (state, action) => {
         };
         default: 
         return state;
-    };
+    }
 }
 
 export class Provider extends Component {
