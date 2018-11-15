@@ -9,7 +9,8 @@ import uuid from 'uuid';
     state = {
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        errors: {}
     }
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -18,7 +19,27 @@ import uuid from 'uuid';
        e.preventDefault();
 
        const { name, email, phone }= this.state;
+
+       //check for errors 
+
+       if(name ===''){
+           this.setState({errors: { name: 'Name is required'}});
+           return;
+       }
        
+
+       if(email ===''){
+        this.setState({errors: { email: 'Email is required'}});
+        return;
+        }
+
+
+       if(phone  ===''){
+        this.setState({errors: { phone: 'Phone is required'}});
+        return;
+        }
+
+
        const newContact = {
            id: uuid(),
            name,
@@ -33,12 +54,13 @@ import uuid from 'uuid';
        this.setState({
            name: '',
            email: '',
-           phone: ''
+           phone: '',
+           errors: {}
        })
     }
   
     render() {
-      const { name, email, phone } = this.state
+      const { name, email, phone, errors } = this.state
       
       return (
          <Consumer>
@@ -56,6 +78,7 @@ import uuid from 'uuid';
                             placeholder="Enter Name"
                             value={name}
                             onChange={this.onChange}
+                            error={errors.name}
                             />
 
                             <TextInputGroup 
@@ -65,6 +88,7 @@ import uuid from 'uuid';
                             value={email}
                             type="email"
                             onChange={this.onChange}
+                            error={errors.email}
                             />
 
                             <TextInputGroup 
@@ -73,6 +97,7 @@ import uuid from 'uuid';
                             placeholder="Enter Phone"
                             value={phone}
                             onChange={this.onChange}
+                            error={errors.phone}
                             />
             
                       
