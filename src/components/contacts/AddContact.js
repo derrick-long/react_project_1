@@ -56,7 +56,9 @@ import uuid from 'uuid';
            email: '',
            phone: '',
            errors: {}
-       })
+       });
+
+       this.props.history.push('/');
     }
   
     render() {
