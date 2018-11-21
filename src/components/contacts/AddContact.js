@@ -33,7 +33,7 @@ import axios from 'axios';
         }
 
 
-       if(phone  ===''){
+       if(phone ===''){
         this.setState({errors: { phone: 'Phone is required'}});
         return;
         }
@@ -45,7 +45,7 @@ import axios from 'axios';
            phone
        };
 
-       axios.post('https://jsonplaceholder.typicode.com/users')
+       axios.post('https://jsonplaceholder.typicode.com/users', newContact)
        .then(res => 
         dispatch({type: 'ADD_CONTACT', payload: res.data}))
 
@@ -96,7 +96,7 @@ import axios from 'axios';
 
                             <TextInputGroup 
                             label="Phone"
-                            name="Phone"
+                            name="phone"
                             placeholder="Enter Phone"
                             value={phone}
                             onChange={this.onChange}
